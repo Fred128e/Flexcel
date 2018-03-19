@@ -155,11 +155,9 @@ namespace Logic
             }
             return winningOffers;
         }
-        public List<Offer> AssignWinners(List<Offer> offersToAssign, List<RouteNumber> sortedRouteNumberList)
+        public List<Offer> AssignWinners(List<Offer> offersToAssign)
         {
-            List<Offer> offersThatHaveBeenMarkedIneligible = new List<Offer>();
             List<Contractor> contractorsToCheck = new List<Contractor>();
-            List<Offer> ineligibleOffersAllContractors = new List<Offer>();
 
             foreach (Offer offer in offersToAssign)
             {
@@ -169,7 +167,12 @@ namespace Logic
                     contractorsToCheck.Add(offer.Contractor);
                 }
             }
-
+            return offersToAssign;
+        }
+        public List<Offer> ReturnIneligibleOffers()
+        {
+            List<Contractor> contractorsToCheck = new List<Contractor>();
+            List<Offer> ineligibleOffersAllContractors = new List<Offer>();
             int lengthOfContractorList = contractorsToCheck.Count();
             for (int i = 0; i < lengthOfContractorList; i++)
             {
@@ -178,9 +181,10 @@ namespace Logic
                 ineligibleOffersAllContractors.AddRange(ineligibleOffersOneContractor);
                 contractorsToCheck[i].RemoveIneligibleOffersFromWinningOffers();
             }
-            
+
             return ineligibleOffersAllContractors;
         }
+            
         public void CheckForMultipleWinnersForEachRouteNumber(List<Offer> winnerList)
         {
             int length = winnerList.Count;
