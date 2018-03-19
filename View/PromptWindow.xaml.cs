@@ -10,7 +10,7 @@ namespace View
     /// </summary>
     public partial class PromptWindow : Window 
     {
-        ListContainer listContainer = ListContainer.GetInstance();
+        ListContainer listContainer = ListContainer.Instance;
         public PromptWindow(string message)
         {
             InitializeComponent();

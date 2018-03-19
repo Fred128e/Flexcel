@@ -7,7 +7,7 @@ namespace Logic
 {
     public class Selection
     {
-        ListContainer listContainer = ListContainer.GetInstance();
+        ListContainer listContainer = ListContainer.Instance;
 
         public void CalculateOperationPriceDifferenceForOffers(List<RouteNumber> sortedRouteNumberList)
         {

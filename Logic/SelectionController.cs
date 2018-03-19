@@ -9,7 +9,7 @@ namespace Logic
         public List<RouteNumber> routeNumberList;
         public Selection selection;
         public List<RouteNumber> sortedRouteNumberList;
-        ListContainer listContainer = ListContainer.GetInstance();
+        ListContainer listContainer = ListContainer.Instance;
         
         public SelectionController()
         {
