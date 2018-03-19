@@ -167,7 +167,7 @@ namespace Logic
                     contractorsToCheck.Add(offer.Contractor);
                 }
             }
-            return offersToAssign;
+            return ReturnIneligibleOffers();
         }
         public List<Offer> ReturnIneligibleOffers()
         {
@@ -181,7 +181,6 @@ namespace Logic
                 ineligibleOffersAllContractors.AddRange(ineligibleOffersOneContractor);
                 contractorsToCheck[i].RemoveIneligibleOffersFromWinningOffers();
             }
-
             return ineligibleOffersAllContractors;
         }
             
