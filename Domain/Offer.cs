@@ -19,6 +19,13 @@
         public int Vechicles { get; set; }
         public int Periode { get; set; }
 
+        public double Weekdays { get; set; }
+        public double Holidays { get; set; }
+        public int Weekends { get; set; }
+        public int ClosedDays { get; set; }
+        public int Vacation { get; set; }
+        
+
         public Offer() { }
         public Offer(string referenceNumber, float operationPrice, int routeID, string userID, int routeNumberPriority, int contractorPriority, Contractor contractor, int requiredVehicleType = 0)
         {

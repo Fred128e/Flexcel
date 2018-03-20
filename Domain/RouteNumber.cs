@@ -8,6 +8,11 @@ namespace Domain
 
         public int RouteID { get; set; }
         public int RequiredVehicleType { get; set; }
+        public double Weekdays { get; set; }
+        public double Holidays { get; set; }
+        public int Weekends { get; set; }
+        public int ClosedDays { get; set; }
+        public int Vacation { get; set; }
         
         public RouteNumber()
         {
@@ -17,6 +22,7 @@ namespace Domain
         {          
             this.RouteID = routeID;
             this.RequiredVehicleType = requiredVehicleType;
+            
         }
     }
 }
