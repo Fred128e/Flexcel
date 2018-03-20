@@ -59,6 +59,9 @@ namespace DataAccess
                UserID = x[5],
                CreateRouteNumberPriority = x[6],
                CreateContractorPriority = x[7],
+               HourlyPrice = Double.Parse(x[8]),
+               Vechicles = Int32.Parse(x[9]),
+               Periode = Int32.Parse(x[10])
            });
                 foreach (var o in data)
                 {

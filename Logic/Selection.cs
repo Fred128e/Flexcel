@@ -7,7 +7,7 @@ namespace Logic
 {
     public class Selection
     {
-        ListContainer listContainer = ListContainer.GetInstance();
+        ListContainer listContainer = ListContainer.Instance;
 
         public double CalculateWeeksAndDays(int period, int vacation, double weekdays, double holidays, double weekends, int closedDays)
         {

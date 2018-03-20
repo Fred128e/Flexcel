@@ -4,6 +4,7 @@ namespace Domain
 {
     public sealed class ListContainer
     {
+        private static ListContainer instance;
         public List<RouteNumber> routeNumberList;
         public List<Contractor> contractorList;
         public List<Offer> outputList;
@@ -12,17 +13,24 @@ namespace Domain
 
         private ListContainer()
         {
-            routeNumberList = new List<RouteNumber>(); 
+            routeNumberList = new List<RouteNumber>();
             contractorList = new List<Contractor>();
             outputList = new List<Offer>();
             conflictList = new List<Offer>();
         }
 
-        public static ListContainer GetInstance()
+        public static ListContainer Instance
         {
-          return listContainer;
+            get
+            {
+                if(instance == null)
+                {
+                    instance = new ListContainer();
+                }
+                return instance;
+            }
         }
-        public void GetLists(List<RouteNumber> routeNumberList, List<Contractor> contractorList)
+        public void GetLists(List<RouteNumber> routeNumberList,List<Contractor> contractorList)
         {
             this.routeNumberList = routeNumberList;
             this.contractorList = contractorList;

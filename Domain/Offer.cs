@@ -15,6 +15,10 @@
         public int ContractorPriority { get; set; }
         public Contractor Contractor {get;set;}
 
+        public double HourlyPrice { get; set; }
+        public int Vechicles { get; set; }
+        public int Periode { get; set; }
+
         public Offer() { }
         public Offer(string referenceNumber, float operationPrice, int routeID, string userID, int routeNumberPriority, int contractorPriority, Contractor contractor, int requiredVehicleType = 0)
         {
