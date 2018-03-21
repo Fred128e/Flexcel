@@ -44,21 +44,7 @@ namespace DataAccess
             bool tryParse = float.TryParse(toParse.Replace('.', ','), out number);
             return number;
         }
-
-        public void ImportOffersCustom(string filepath) //Mathias
-        {
-            try
-            {
-                var data = File.ReadAllLines(filepath, encoding)
-            .Skip(1)
-            .Select(x => x.Split(';'))
-            .Select(x => new Offer
-            {
-
-            }
-             
-        }
-
+   
         public void ImportOffers(string filepath)
         {
             try
