@@ -29,7 +29,12 @@ namespace Domain
 
         public RouteNumber()
         {
-            offers = new List<Offer>(); 
+            offers = new List<Offer>();
+            foreach (Offer offer in offers)
+            {
+                offer.OperationPrice = CalculateSum(offer.OperationPrice);
+            }
+            
         }
         public RouteNumber(int routeID, int requiredVehicleType, double weekdays, double weekends, int closedDays, double holidays, int vacation) : this()
         {          
@@ -64,6 +69,11 @@ namespace Domain
         {
             double hoursPrVehicle = hoursWithHolidays / period;
             return hoursPrVehicle;
+        }
+        public float CalculateSum(float operationPrice) //hoursPrVehicle skal hentes fra CalculateHoursPrVehicle
+        {
+            float calculatedSum = operationPrice * (float) this.CalculatedHours;
+            return calculatedSum;
         }
     }
 }
