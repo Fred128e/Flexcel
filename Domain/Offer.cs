@@ -39,5 +39,11 @@
             this.RequiredVehicleType = requiredVehicleType;
             IsEligible = true;
         }
+
+        public double CalculateSum(float operationPrice, double hoursPrVehicle) //hoursPrVehicle skal hentes fra CalculateHoursPrVehicle
+        {
+            double calculatedSum = operationPrice * hoursPrVehicle;
+            return calculatedSum;
+        }
     }
 }

@@ -9,32 +9,6 @@ namespace Logic
     {
         ListContainer listContainer = ListContainer.Instance;
 
-        public double CalculateWeeksAndDays(int period, int vacation, double weekdays, double holidays, double weekends, int closedDays)
-        {
-            //period er år i kontraktperioden
-            //vacation er uger med ferie
-
-            int weeks = 52; //tager ikke højde for skudår
-            int workingWeeks = period * (weeks - vacation); //antal uger hvor der arbejdes
-
-            int weekHolidays = 6; //antal helligdage
-            double hoursWithHolidays = (workingWeeks * (weekdays * 5 + weekends * 2 - closedDays)) + (weekdays * weekHolidays) - (holidays * weekHolidays);
-
-            return hoursWithHolidays;
-        }
-
-        public double CalculateHoursPrVehicle(int period, double hoursWithHolidays) //period og hoursWithHolidays skan hentes fra CalculateWeeksAndDays
-        {
-            double hoursPrVehicle = hoursWithHolidays / period;
-            return hoursPrVehicle;
-        }
-        public double CalculateSum(int hourlyPrice, double hoursPrVehicle) //hoursPrVehicle skal hentes fra CalculateHoursPrVehicle
-        {
-            double calculatedSum = hourlyPrice * hoursPrVehicle;
-            return calculatedSum;
-        }
-
-
         public void CalculateOperationPriceDifferenceForOffers(List<RouteNumber> sortedRouteNumberList)
         {
             const int LAST_OPTION_VALUE = int.MaxValue;

@@ -110,6 +110,7 @@ namespace DataAccess
                 throw new Exception("Fejl, filerne blev ikke importeret");
             }
         }
+
         public void ImportRouteNumbers()
         {
             //DateTime dateTime = new DateTime(2014, 10, 27, 16, 30 ,00);
@@ -121,7 +122,7 @@ namespace DataAccess
                 //string Weekends=Weekends;
                 //string ClosedDays=ClosedDays;
                 //string Vacation=Vacation;
-                string filepath = Environment.ExpandEnvironmentVariables("RouteNumbers.csv");
+                string filepath = Environment.ExpandEnvironmentVariables("NEWEST-Routes.csv");
                 var data = File.ReadAllLines(filepath, encoding)
                 .Skip(1)
                 .Select(x => x.Split(';'))
@@ -129,8 +130,9 @@ namespace DataAccess
                 {
                     RouteID = TryParseToIntElseZero(x[0]),
                     RequiredVehicleType = TryParseToIntElseZero(x[1]),
-
-
+                    Weekdays = TryParseToFloatElseZero(x[2]),
+                    Weekends = TryParseToFloatElseZero(x[3]),
+                    Holidays = TryParseToFloatElseZero(x[4]),
                 });
                 foreach (var r in data)
                 {
@@ -140,7 +142,7 @@ namespace DataAccess
                     {
                         listOfRouteNumbers.Add(r);
                     }
-                }
+                } 
 
             }
 
