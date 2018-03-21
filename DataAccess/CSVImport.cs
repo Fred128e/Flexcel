@@ -44,6 +44,21 @@ namespace DataAccess
             bool tryParse = float.TryParse(toParse.Replace('.', ','), out number);
             return number;
         }
+
+        public void ImportOffersCustom(string filepath) //Mathias
+        {
+            try
+            {
+                var data = File.ReadAllLines(filepath, encoding)
+            .Skip(1)
+            .Select(x => x.Split(';'))
+            .Select(x => new Offer
+            {
+
+            }
+             
+        }
+
         public void ImportOffers(string filepath)
         {
             try
@@ -61,7 +76,7 @@ namespace DataAccess
                CreateContractorPriority = x[7],
                HourlyPrice = Double.Parse(x[8]),
                Vechicles = Int32.Parse(x[9]),
-               Periode = Int32.Parse(x[10])
+               Period = Int32.Parse(x[10])
            });
                 foreach (var o in data)
                 {
