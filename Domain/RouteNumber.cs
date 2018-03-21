@@ -30,11 +30,6 @@ namespace Domain
         public RouteNumber()
         {
             offers = new List<Offer>();
-            foreach (Offer offer in offers)
-            {
-                offer.OperationPrice = CalculateSum(offer.OperationPrice);
-            }
-            
         }
         public RouteNumber(int routeID, int requiredVehicleType, double weekdays, double weekends, int closedDays, double holidays, int vacation) : this()
         {          
@@ -47,6 +42,10 @@ namespace Domain
             this.Vacation = vacation;
             double hoursWithHolidays = CalculateWeeksAndDays(Period, Vacation, Weekdays, Holidays, Weekends, ClosedDays);
             this.CalculatedHours = CalculateHoursPrVehicle(Period, hoursWithHolidays);
+            foreach (Offer offer in offers)
+            {
+                offer.OperationPrice = CalculateSum(offer.OperationPrice);
+            }
         }
         
 
