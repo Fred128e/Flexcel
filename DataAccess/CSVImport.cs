@@ -60,9 +60,9 @@ namespace DataAccess
                UserID = x[5],
                CreateRouteNumberPriority = x[6],
                CreateContractorPriority = x[7],
-               HourlyPrice = Double.Parse(x[8]),
-               Vechicles = Int32.Parse(x[9]),
-               Period = Int32.Parse(x[10])
+               //HourlyPrice = Double.Parse(x[8]),
+               //Vechicles = Int32.Parse(x[9]),
+               //Period = Int32.Parse(x[10])
            });
                 foreach (var o in data)
                 {
@@ -145,8 +145,6 @@ namespace DataAccess
                 } 
 
             }
-
-
             catch (IndexOutOfRangeException)
             {
                 throw new IndexOutOfRangeException("Fejl, er du sikker på du har valgt den rigtige fil?");
