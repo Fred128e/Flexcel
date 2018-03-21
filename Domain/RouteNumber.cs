@@ -13,12 +13,13 @@ namespace Domain
         public double Weekends { get; set; }
         public int ClosedDays { get; set; }
         public int Vacation { get; set; }
-        
+
+        public readonly int PeriodInt = 2;
         public int Period
         {
             get
             {
-                return 2;
+                return PeriodInt;
             }
         }
         public double CalculatedHours
