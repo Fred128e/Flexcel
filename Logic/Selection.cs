@@ -7,7 +7,7 @@ namespace Logic
 {
     public class Selection
     {
-        ListContainer listContainer = ListContainer.GetInstance();
+        ListContainer listContainer = ListContainer.Instance;
 
         public void CalculateOperationPriceDifferenceForOffers(List<RouteNumber> sortedRouteNumberList)
         {
@@ -155,39 +155,9 @@ namespace Logic
             }
             return winningOffers;
         }
-        //public List<Offer> AssignWinners(List<Offer> offersToAssign)
-        //{
-        //    List<Contractor> contractorsToCheck = new List<Contractor>();
-
-        //    foreach (Offer offer in offersToAssign)
-        //    {
-        //        if (offer.IsEligible)
-        //        {
-        //            listContainer.contractorList.Find(x => x.UserID == offer.UserID).AddWonOffer(offer);
-        //            contractorsToCheck.Add(offer.Contractor);
-        //        }
-        //    }
-        //    return ReturnIneligibleOffers();
-        //}
-        //public List<Offer> ReturnIneligibleOffers()
-        //{
-        //    List<Contractor> contractorsToCheck = new List<Contractor>();
-        //    List<Offer> ineligibleOffersAllContractors = new List<Offer>();
-        //    int lengthOfContractorList = contractorsToCheck.Count();
-        //    for (int i = 0; i < lengthOfContractorList; i++)
-        //    {
-        //        contractorsToCheck[i].CompareNumberOfWonOffersAgainstVehicles();
-        //        List<Offer> ineligibleOffersOneContractor = contractorsToCheck[i].ReturnIneligibleOffers();
-        //        ineligibleOffersAllContractors.AddRange(ineligibleOffersOneContractor);
-        //        contractorsToCheck[i].RemoveIneligibleOffersFromWinningOffers();
-        //    }
-        //    return ineligibleOffersAllContractors;
-        //}
-        public List<Offer> AssignWinners(List<Offer> offersToAssign, List<RouteNumber> sortedRouteNumberList)
+        public List<Offer> AssignWinners(List<Offer> offersToAssign)
         {
-            List<Offer> offersThatHaveBeenMarkedIneligible = new List<Offer>();
             List<Contractor> contractorsToCheck = new List<Contractor>();
-            List<Offer> ineligibleOffersAllContractors = new List<Offer>();
 
             foreach (Offer offer in offersToAssign)
             {
@@ -197,7 +167,12 @@ namespace Logic
                     contractorsToCheck.Add(offer.Contractor);
                 }
             }
-
+            return ReturnIneligibleOffers();
+        }
+        public List<Offer> ReturnIneligibleOffers()
+        {
+            List<Contractor> contractorsToCheck = new List<Contractor>();
+            List<Offer> ineligibleOffersAllContractors = new List<Offer>();
             int lengthOfContractorList = contractorsToCheck.Count();
             for (int i = 0; i < lengthOfContractorList; i++)
             {
@@ -206,9 +181,34 @@ namespace Logic
                 ineligibleOffersAllContractors.AddRange(ineligibleOffersOneContractor);
                 contractorsToCheck[i].RemoveIneligibleOffersFromWinningOffers();
             }
-
             return ineligibleOffersAllContractors;
         }
+        //public List<Offer> AssignWinners(List<Offer> offersToAssign, List<RouteNumber> sortedRouteNumberList)
+        //{
+        //    List<Offer> offersThatHaveBeenMarkedIneligible = new List<Offer>();
+        //    List<Contractor> contractorsToCheck = new List<Contractor>();
+        //    List<Offer> ineligibleOffersAllContractors = new List<Offer>();
+
+        //    foreach (Offer offer in offersToAssign)
+        //    {
+        //        if (offer.IsEligible)
+        //        {
+        //            listContainer.contractorList.Find(x => x.UserID == offer.UserID).AddWonOffer(offer);
+        //            contractorsToCheck.Add(offer.Contractor);
+        //        }
+        //    }
+
+        //    int lengthOfContractorList = contractorsToCheck.Count();
+        //    for (int i = 0; i < lengthOfContractorList; i++)
+        //    {
+        //        contractorsToCheck[i].CompareNumberOfWonOffersAgainstVehicles();
+        //        List<Offer> ineligibleOffersOneContractor = contractorsToCheck[i].ReturnIneligibleOffers();
+        //        ineligibleOffersAllContractors.AddRange(ineligibleOffersOneContractor);
+        //        contractorsToCheck[i].RemoveIneligibleOffersFromWinningOffers();
+        //    }
+
+        //    return ineligibleOffersAllContractors;
+        //}
 
         public void CheckForMultipleWinnersForEachRouteNumber(List<Offer> winnerList)
         {

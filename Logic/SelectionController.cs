@@ -9,7 +9,7 @@ namespace Logic
         public List<RouteNumber> routeNumberList;
         public Selection selection;
         public List<RouteNumber> sortedRouteNumberList;
-        ListContainer listContainer = ListContainer.GetInstance();
+        ListContainer listContainer = ListContainer.Instance;
         
         public SelectionController()
         {
@@ -41,7 +41,7 @@ namespace Logic
                     offersToAssign.Add(offer);
                 }
             }
-            List<Offer> offersThatAreIneligible = selection.AssignWinners(offersToAssign, sortedRouteNumberList);
+            List<Offer> offersThatAreIneligible = selection.AssignWinners(offersToAssign);
 
             bool allRouteNumberHaveWinner = DoAllRouteNumbersHaveWinner(offersThatAreIneligible);
             if (allRouteNumberHaveWinner)
@@ -78,7 +78,7 @@ namespace Logic
                     }
                 }
             }
-            offersThatHaveBeenMarkedIneligible = selection.AssignWinners(offersToAssign, sortedRouteNumberList);
+            offersThatHaveBeenMarkedIneligible = selection.AssignWinners(offersToAssign);
             bool allRouteNumberHaveWinner = DoAllRouteNumbersHaveWinner(offersThatHaveBeenMarkedIneligible);
             if (allRouteNumberHaveWinner)
             {

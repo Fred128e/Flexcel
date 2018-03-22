@@ -18,7 +18,7 @@ namespace DataAccess
         public CSVExportToCallList(string filePath)
         {
             FilePath = filePath;
-            listContainer = ListContainer.GetInstance();
+            listContainer = ListContainer.Instance;
             winningOfferList = listContainer.outputList;
             encoding = Encoding.GetEncoding("iso-8859-1");
         }
