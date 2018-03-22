@@ -17,7 +17,7 @@ namespace DataAccess
         public CSVExportToPublishList(string filePath)
         {
             FilePath = filePath;
-            listContainer = ListContainer.Instance;
+            listContainer = ListContainer.GetInstance();
             winningOfferList = listContainer.outputList;
             encoding = Encoding.GetEncoding("iso-8859-1");
         }

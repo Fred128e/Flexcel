@@ -4,7 +4,7 @@ namespace Domain
 {
     public sealed class ListContainer
     {
-        private static ListContainer instance;
+        //private static ListContainer instance;
         public List<RouteNumber> routeNumberList;
         public List<Contractor> contractorList;
         public List<Offer> outputList;
@@ -19,16 +19,9 @@ namespace Domain
             conflictList = new List<Offer>();
         }
 
-        public static ListContainer Instance
+        public static ListContainer GetInstance()
         {
-            get
-            {
-                if(instance == null)
-                {
-                    instance = new ListContainer();
-                }
-                return instance;
-            }
+            return listContainer;
         }
         public void GetLists(List<RouteNumber> routeNumberList,List<Contractor> contractorList)
         {

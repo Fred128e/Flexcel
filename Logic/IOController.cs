@@ -32,7 +32,7 @@ namespace Logic
             csvImport.ImportOffers(routeNumberFilepath);
             contractorList = csvImport.SendContractorListToContainer();
             routeNumberList = csvImport.SendRouteNumberListToContainer();
-            ListContainer listContainer = ListContainer.Instance;
+            ListContainer listContainer = ListContainer.GetInstance();
             listContainer.GetLists(routeNumberList, contractorList);
         }
     }

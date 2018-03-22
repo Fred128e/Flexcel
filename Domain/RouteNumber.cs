@@ -14,12 +14,11 @@ namespace Domain
         public int ClosedDays { get; set; }
         public int Vacation { get; set; }
 
-        public readonly int PeriodInt = 2;
         public int Period
         {
             get
             {
-                return PeriodInt;
+                return 2;
             }
         }
         public double CalculatedHours
@@ -32,7 +31,7 @@ namespace Domain
         {
             offers = new List<Offer>();
         }
-        public RouteNumber(int routeID, int requiredVehicleType, double weekdays, double weekends, int closedDays, double holidays, int vacation) : this()
+        public RouteNumber(int routeID, int requiredVehicleType, double weekdays, double weekends, double holidays, int closedDays, int vacation) : this()
         {          
             this.RouteID = routeID;
             this.RequiredVehicleType = requiredVehicleType;

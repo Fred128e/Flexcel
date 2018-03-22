@@ -9,7 +9,7 @@ namespace UnitTest
 {
     public class TestDataContainer
     {
-        ListContainer listContainer = ListContainer.Instance;
+        ListContainer listContainer = ListContainer.GetInstance;
 
         public void FillListContainer_HappyPath()
         {

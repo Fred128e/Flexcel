@@ -75,7 +75,7 @@ namespace DataAccess
                         try
                         {
                             o.RequiredVehicleType = (listOfRouteNumbers.Find(r => r.RouteID == o.RouteID)).RequiredVehicleType;
-                            Offer newOffer = new Offer(o.OfferReferenceNumber, o.OperationPrice, o.RouteID, o.UserID, o.RouteNumberPriority, o.ContractorPriority, contractor, o.RequiredVehicleType);
+                            Offer newOffer = new Offer(o.OfferReferenceNumber, o.OperationPrice, o.RouteID, o.UserID, o.RouteNumberPriority, o.ContractorPriority, contractor, (int) o.RequiredVehicleType);
                             listOfOffers.Add(newOffer);
                         }
                         catch

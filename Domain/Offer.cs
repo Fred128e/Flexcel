@@ -5,7 +5,7 @@
         public string OfferReferenceNumber { get; set; }
         public float OperationPrice { get; set; }
         public bool IsEligible { get; set; }     
-        public int RequiredVehicleType { get; set; }
+        public int RequiredVehicleType { get; set; } //ændret til float
         public int RouteID { get; set; }
         public string UserID { get; set; }
         public float DifferenceToNextOffer { get; set; }
