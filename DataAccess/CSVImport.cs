@@ -113,15 +113,9 @@ namespace DataAccess
 
         public void ImportRouteNumbers()
         {
-            //DateTime dateTime = new DateTime(2014, 10, 27, 16, 30 ,00);
-            
             try
             {
-                //string Weekdays=Weekdays;
-                //string Holidays=Holidays;
-                //string Weekends=Weekends;
-                //string ClosedDays=ClosedDays;
-                //string Vacation=Vacation;
+
                 string filepath = Environment.ExpandEnvironmentVariables("RouteNumbers.csv");
                 var data = File.ReadAllLines(filepath, encoding)
                 .Skip(1)
