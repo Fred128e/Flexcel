@@ -115,7 +115,6 @@ namespace DataAccess
         {
             try
             {
-
                 string filepath = Environment.ExpandEnvironmentVariables("RouteNumbers.csv");
                 var data = File.ReadAllLines(filepath, encoding)
                 .Skip(1)
