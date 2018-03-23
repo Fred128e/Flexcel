@@ -48,8 +48,6 @@ namespace Domain
             }
         }
         
-
-        
         public double CalculateWeeksAndDays(int Period, int Vacation, double Weekdays, double holidays, double weekends, int ClosedDays)
         {
             //period er år i kontraktperioden
